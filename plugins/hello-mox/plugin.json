@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "id": "hello-mox",
+  "name": "Hello mox",
+  "version": "1.0.0",
+  "author": {
+    "name": "codecloud-dev",
+    "url": "https://github.com/codecloud-dev"
+  },
+  "description": "官方最小示例插件：演示 .mox 清单格式与插件商店的安装流程。",
+  "categories": ["demo"],
+  "tags": ["demo", "official", "example"],
+  "visibility": "open-source",
+  "license": {
+    "spdx": "GPL-3.0"
+  },
+  "pricing": {
+    "model": "free"
+  },
+  "compatibility": {
+    "minAppVersion": "0.5.0",
+    "minPluginApi": "1.0",
+    "supportedOs": ["android"],
+    "requiresRoot": false,
+    "requiresProot": false
+  },
+  "distribution": {
+    "type": "git",
+    "channel": "stable",
+    "autoUpdate": false
+  },
+  "entrypoints": {
+    "hooks": ["onEnable"]
+  },
+  "permissions": [],
+  "capabilities": ["demo"],
+  "updatedAt": "2026-09-30T00:00:00Z"
+}

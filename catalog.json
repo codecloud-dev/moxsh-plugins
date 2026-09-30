@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-09-30",
+  "entries": [
+    {
+      "id": "hello-mox",
+      "name": "Hello mox",
+      "version": "1.0.0",
+      "author": "codecloud-dev",
+      "description": "官方最小示例插件：演示 .mox 清单格式与插件商店的安装流程。",
+      "type": "plugin",
+      "minAppVersion": "0.5.0",
+      "permissions": [],
+      "price": 0.0,
+      "purchased": false,
+      "sizeBytes": 0,
+      "tags": ["demo", "official"],
+      "repository": "codecloud-dev/moxsh-plugins",
+      "path": "plugins/hello-mox"
+    }
+  ]
+}
