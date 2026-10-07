@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codecloud-dev.github.io/moxsh-plugins/schema/catalog.schema.json",
+  "title": "moxsh 插件目录 catalog.json",
+  "description": "moxsh App 插件商店直接消费的索引文件结构：顶层对象 + entries 数组。每条 entry 必须带 type，否则 App 会解析失败。",
+  "type": "object",
+  "required": ["schemaVersion", "entries"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "repoVersion": { "type": "string" },
+    "updated": { "type": "string" },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["id", "name", "version", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(?!\\.)[A-Za-z0-9._-]+$",
+          "description": "插件唯一标识：仅字母数字与 . _ -，不以 . 开头"
+        },
+        "name": { "type": "string" },
+        "version": { "type": "string", "description": "语义化版本号" },
+        "type": {
+          "type": "string",
+          "enum": ["plugin", "skill", "theme", "rootfs"],
+          "description": "缺此字段 App 会解析失败"
+        },
+        "author": { "type": "string" },
+        "description": { "type": "string" },
+        "minAppVersion": { "type": "string" },
+        "permissions": { "type": "array", "items": { "type": "string" } },
+        "price": { "type": "number", "description": "0 为免费" },
+        "purchased": { "type": "boolean" },
+        "sizeBytes": { "type": "number", "description": "包体积；包体未就绪时为 0 占位" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "repository": { "type": "string" },
+        "path": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  }
+}

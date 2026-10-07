@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "id": "glass-terminal-theme",
+  "name": "Glass Terminal 主题",
+  "version": "1.0.0",
+  "author": {
+    "name": "codecloud-dev",
+    "url": "https://github.com/codecloud-dev"
+  },
+  "description": "液态玻璃风格的终端主题：半透明面板、毛玻璃背景、跟随系统的强调色。",
+  "categories": ["theme", "glass"],
+  "tags": ["theme", "glass", "official", "example"],
+  "visibility": "open-source",
+  "license": {
+    "spdx": "GPL-3.0"
+  },
+  "pricing": {
+    "model": "free"
+  },
+  "compatibility": {
+    "minAppVersion": "0.6.0",
+    "minPluginApi": "1.0",
+    "supportedOs": ["android"],
+    "requiresRoot": false,
+    "requiresProot": false
+  },
+  "distribution": {
+    "type": "git",
+    "channel": "stable",
+    "autoUpdate": false
+  },
+  "entrypoints": {
+    "hooks": ["onEnable", "onApply"]
+  },
+  "permissions": [],
+  "capabilities": ["theme.glass"],
+  "updatedAt": "2026-10-07T00:00:00Z"
+}

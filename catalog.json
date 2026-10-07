@@ -1,6 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "updated": "2026-09-30",
+  "repoVersion": "1.0.0",
+  "updated": "2026-10-07",
   "entries": [
     {
       "id": "hello-mox",
@@ -17,6 +18,22 @@
       "tags": ["demo", "official"],
       "repository": "codecloud-dev/moxsh-plugins",
       "path": "plugins/hello-mox"
+    },
+    {
+      "id": "glass-terminal-theme",
+      "name": "Glass Terminal 主题",
+      "version": "1.0.0",
+      "author": "codecloud-dev",
+      "description": "液态玻璃风格的终端主题：半透明面板、毛玻璃背景、跟随系统的强调色。",
+      "type": "theme",
+      "minAppVersion": "0.6.0",
+      "permissions": [],
+      "price": 0.0,
+      "purchased": false,
+      "sizeBytes": 0,
+      "tags": ["theme", "glass", "official"],
+      "repository": "codecloud-dev/moxsh-plugins",
+      "path": "plugins/glass-terminal-theme"
     }
   ]
 }
