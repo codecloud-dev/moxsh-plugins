@@ -1,12 +1,34 @@
 # moxsh 插件商店
 
+<p align="center">
+  <img src="https://img.shields.io/badge/version-1.0.0-8a7bff" alt="version">
+  <img src="https://img.shields.io/badge/license-MIT-37d5d3" alt="license">
+  <img src="https://img.shields.io/badge/format-JSON%20Schema-2088FF?logo=json&logoColor=white" alt="JSON Schema">
+  <img src="https://img.shields.io/badge/store-catalog%20%26%20plugins-ff7ac3" alt="store">
+</p>
+
+
 > **仓库版本：1.0.0** · 官方与社区插件的索引与清单仓库。moxsh App 的插件商店从这里读取目录，按 id 下载 `.mox` 包安装。
 
 moxsh · 让手机上的 Linux 像 iOS 一样顺滑。
 
 ---
 
-## 仓库结构
+<details>
+<summary>📑 目录 · Contents</summary>
+
+- [🗂️ 仓库结构](#仓库结构)
+- [🔧 App 如何消费本仓库](#app-如何消费本仓库)
+- [🔹 catalog.json 字段](#catalogjson-字段)
+- [📋 完整清单 `plugin.json`（作者必读）](#完整清单-pluginjson作者必读)
+- [🛠️ 本地校验清单（开发者）](#本地校验清单开发者)
+- [🧩 提交你的插件](#提交你的插件)
+- [🗺️ 进度表 / 路线图](#进度表-路线图)
+- [🔹 当前状态](#当前状态)
+
+</details>
+
+## 🗂️ 仓库结构
 
 ```text
 moxsh-plugins/
@@ -24,7 +46,7 @@ moxsh-plugins/
 
 ---
 
-## App 如何消费本仓库
+## 🔧 App 如何消费本仓库
 
 moxsh App 内 `StoreRepository.CloudStoreApi` 的行为：
 
@@ -36,7 +58,7 @@ moxsh App 内 `StoreRepository.CloudStoreApi` 的行为：
 
 ---
 
-## catalog.json 字段
+## 🔹 catalog.json 字段
 
 | 字段 | 必需 | 说明 |
 | --- | --- | --- |
@@ -57,7 +79,7 @@ moxsh App 内 `StoreRepository.CloudStoreApi` 的行为：
 
 ---
 
-## 完整清单 `plugin.json`（作者必读）
+## 📋 完整清单 `plugin.json`（作者必读）
 
 每个插件目录下的 `plugin.json` 是插件的完整清单（含兼容矩阵、分发方式、入口点、能力、授权等）。
 以下字段遵循统一 Schema（完整 41 字段规范见 `moxsh-suite` 的 `spec/plugin-manifest.schema.json`）：
@@ -83,7 +105,7 @@ moxsh App 内 `StoreRepository.CloudStoreApi` 的行为：
 
 ---
 
-## 本地校验清单（开发者）
+## 🛠️ 本地校验清单（开发者）
 
 仓库附带 `schema/catalog.schema.json`。提交前可用任意 JSON Schema 工具校验 `catalog.json` 是否符合结构：
 
@@ -101,7 +123,7 @@ ajv compile -s schema/catalog.schema.json && ajv validate -s schema/catalog.sche
 
 ---
 
-## 提交你的插件
+## 🧩 提交你的插件
 
 1. Fork 本仓库，在 `plugins/<插件 id>/` 下放 `plugin.json`；
 2. 往 `plugins.json` 的 `plugins` 数组追加一条（含 `repo` / `path` / `tags`）；
@@ -113,7 +135,7 @@ ajv compile -s schema/catalog.schema.json && ajv validate -s schema/catalog.sche
 
 ---
 
-## 进度表 / 路线图
+## 🗺️ 进度表 / 路线图
 
 | 模块 | 状态 | 说明 |
 |------|------|------|
@@ -128,7 +150,7 @@ ajv compile -s schema/catalog.schema.json && ajv validate -s schema/catalog.sche
 
 ---
 
-## 当前状态
+## 🔹 当前状态
 
 `.mox` 打包流程尚未接入 CI，`catalog.json` 里的 `sizeBytes` 暂为 `0` 占位；
 包体未就绪时，App 点安装会提示"包源未配置"，属预期表现。
