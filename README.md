@@ -8,6 +8,8 @@
 </p>
 
 
+<p align="center"><a href="README.md">中文</a> · <a href="README.en.md">English</a></p>
+
 > **仓库版本：1.0.0** · 官方与社区插件的索引与清单仓库。moxsh App 的插件商店从这里读取目录，按 id 下载 `.mox` 包安装。
 
 moxsh · 让手机上的 Linux 像 iOS 一样顺滑。
