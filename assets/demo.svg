@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 760 380" width="760" height="380" role="img"
+     aria-label="moxsh 插件商店动图：四张插件卡片错峰呼吸亮起，示意一键安装生态">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b1832"/>
+      <stop offset="1" stop-color="#0d0b1a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a7bff"/>
+      <stop offset="1" stop-color="#37d5d3"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="760" height="380" fill="url(#bg)"/>
+  <text x="380" y="34" text-anchor="middle" fill="#ECEAFF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22" font-weight="700">插件商店 · 一键安装</text>
+  <text x="380" y="57" text-anchor="middle" fill="#9B96C9" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12">catalog.json 索引 · 按 id 下载 .mox 包 · 官方与社区共建</text>
+  <g>
+    <rect x="40" y="150" width="155" height="120" rx="14" fill="#15122a" stroke="#2c2650" stroke-width="1"/>
+    <circle cx="118" cy="196" r="22" fill="#8a7bff" opacity="0.85"/>
+    <text x="118" y="201" text-anchor="middle" fill="#0d0b1a" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700">T</text>
+    <text x="118" y="244" text-anchor="middle" fill="#ECEAFF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700">terminal</text>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" begin="0s"/>
+  </g>
+  <g>
+    <rect x="215" y="150" width="155" height="120" rx="14" fill="#15122a" stroke="#2c2650" stroke-width="1"/>
+    <circle cx="293" cy="196" r="22" fill="#37d5d3" opacity="0.85"/>
+    <text x="293" y="201" text-anchor="middle" fill="#0d0b1a" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700">S</text>
+    <text x="293" y="244" text-anchor="middle" fill="#ECEAFF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700">shell</text>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+  </g>
+  <g>
+    <rect x="390" y="150" width="155" height="120" rx="14" fill="#15122a" stroke="#2c2650" stroke-width="1"/>
+    <circle cx="468" cy="196" r="22" fill="#ff7ac3" opacity="0.85"/>
+    <text x="468" y="201" text-anchor="middle" fill="#0d0b1a" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700">T</text>
+    <text x="468" y="244" text-anchor="middle" fill="#ECEAFF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700">theme</text>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" begin="1.0s"/>
+  </g>
+  <g>
+    <rect x="565" y="150" width="155" height="120" rx="14" fill="#15122a" stroke="#2c2650" stroke-width="1"/>
+    <circle cx="643" cy="196" r="22" fill="#ffd36b" opacity="0.85"/>
+    <text x="643" y="201" text-anchor="middle" fill="#0d0b1a" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700">T</text>
+    <text x="643" y="244" text-anchor="middle" fill="#ECEAFF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700">tool</text>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+  </g>
+  <text x="380" y="320" text-anchor="middle" fill="#9B96C9" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12">提交你的插件 → 一处上架，moxsh 全家桶即装即用</text>
+  <text x="380" y="366" text-anchor="middle" fill="#6f6a96" font-family="sans-serif" font-size="11">moxsh-plugins — 官方与社区的插件目录</text>
+</svg>

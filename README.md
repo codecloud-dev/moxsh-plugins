@@ -12,6 +12,8 @@
 
 moxsh · 让手机上的 Linux 像 iOS 一样顺滑。
 
+<p align="center"><img src="assets/demo.svg" width="760" alt="moxsh 插件商店动图：四张插件卡片错峰呼吸亮起，示意一键安装生态"></p>
+
 <p><b>⭐ 如果这个插件商店对你有用,欢迎点个 <a href="https://github.com/codecloud-dev/moxsh-plugins">Star</a> —— 它能让更多开发者发现 moxsh 生态!</b></p>
 
 ---
