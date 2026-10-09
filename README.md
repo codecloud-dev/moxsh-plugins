@@ -18,6 +18,8 @@ moxsh · 让手机上的 Linux 像 iOS 一样顺滑。
 
 <p><b>⭐ 如果这个插件商店对你有用,欢迎点个 <a href="https://github.com/codecloud-dev/moxsh-plugins">Star</a> —— 它能让更多开发者发现 moxsh 生态!</b></p>
 
+<p>💛 觉得好用？欢迎到 <a href="https://afdian.com/a/cloudharbor">爱发电</a> 请作者喝杯咖啡 —— 国内可直接微信 / 支付宝收款，是独立开发最大的鼓励。</p>
+
 ---
 
 <details>
