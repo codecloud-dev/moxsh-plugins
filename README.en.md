@@ -17,6 +17,19 @@ moxsh · a Linux terminal on your phone that feels as smooth as iOS.
 
 <p align="center"><b>⭐ If this plugin store is useful to you, please give it a <a href="https://github.com/codecloud-dev/moxsh-plugins">Star</a> — it helps more developers discover the moxsh ecosystem!</b></p>
 
+
+
+## 🐛 Welcome to roast me
+
+> This is an early-stage project — **bugs exist, and probably plenty of them.** I'm not pretending it's perfect.
+> Every pitfall you hit and every gripe you have is a chance to help make it better.
+
+- 💥 Crashed / black screen / won't run? → [File a bug report](https://github.com/codecloud-dev/moxsh-plugins/issues)
+- 💡 Want a feature? → [Open a feature request](https://github.com/codecloud-dev/moxsh-plugins/issues)
+- 🗯️ Just want to rant or nitpick? → Issues are welcome too, label it whatever 😄
+
+I read every issue and fix what I can, fast. Let's grow this from "runs" to "delightful" 💪
+
 <p align="center">💛 Found it useful? <a href="https://afdian.com/a/cloudharbor">Buy the author a coffee on AfDian</a> — CN payments (WeChat / Alipay) supported, the biggest encouragement for an indie dev.</p>
 
 ---
