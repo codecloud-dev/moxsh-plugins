@@ -1,3 +1,5 @@
+> **🌐 Canonical repository is on GitHub** — [`codecloud-dev/moxsh-plugins`](https://github.com/codecloud-dev/moxsh-plugins) is the single source of truth: please file all issues and pull requests there. The [Gitee mirror](https://gitee.com/thousand-code-crafts/moxsh-plugins) is a read-only copy synced hourly for faster access in mainland China.
+
 # moxsh Plugin Store
 
 <p align="center">
