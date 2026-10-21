@@ -1,3 +1,5 @@
+> **🌐 主仓库在 GitHub** — [`codecloud-dev/moxsh-plugins`](https://github.com/codecloud-dev/moxsh-plugins) 是唯一主源：Issue、Pull Request、功能讨论请统一提交到 GitHub。[Gitee 镜像](https://gitee.com/thousand-code-crafts/moxsh-plugins) 仅供国内高速只读访问，每小时从 GitHub 自动同步。
+
 # moxsh 插件商店
 
 <p align="center">
