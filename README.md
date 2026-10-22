@@ -1,4 +1,4 @@
-> **🌐 主仓库在 GitHub** — [`codecloud-dev/moxsh-plugins`](https://mox-site.pages.dev/go.html?r=moxsh-plugins) 是唯一主源：Issue、Pull Request、功能讨论请统一提交到 GitHub。[Gitee 镜像](https://gitee.com/thousand-code-crafts/moxsh-plugins) 仅供国内高速只读访问，每小时从 GitHub 自动同步。
+> **🌐 主仓库在 GitHub** — [`codecloud-dev/moxsh-plugins`](https://mox-site.pages.dev/go?r=moxsh-plugins) 是唯一主源：Issue、Pull Request、功能讨论请统一提交到 GitHub。[Gitee 镜像](https://gitee.com/thousand-code-crafts/moxsh-plugins) 仅供国内高速只读访问，每小时从 GitHub 自动同步。
 
 <p align="center"><img src="assets/logo.svg" width="128" alt="MoX"/></p>
 
@@ -21,7 +21,7 @@ moxsh · 让手机上的 Linux 像 iOS 一样顺滑。
 
 <p align="center"><img src="assets/demo.svg" width="760" alt="moxsh 插件商店动图：四张插件卡片错峰呼吸亮起，示意一键安装生态"></p>
 
-<p><b>⭐ 如果这个插件商店对你有用,欢迎点个 <a href="https://mox-site.pages.dev/go.html?r=moxsh-plugins">Star</a> —— 它能让更多开发者发现 moxsh 生态!</b></p>
+<p><b>⭐ 如果这个插件商店对你有用,欢迎点个 <a href="https://mox-site.pages.dev/go?r=moxsh-plugins">Star</a> —— 它能让更多开发者发现 moxsh 生态!</b></p>
 
 
 
@@ -30,8 +30,8 @@ moxsh · 让手机上的 Linux 像 iOS 一样顺滑。
 > 这是个刚起步的项目，**bug 肯定有，而且不少**。我不装完美——
 > 你踩到的每一个坑、每一个槽点，都是帮我把它养好的机会。
 
-- 💥 遇到崩溃 / 黑屏 / 跑不起来？→ [提个 Bug 报告](https://mox-site.pages.dev/go.html?r=moxsh-plugins&p=issues)
-- 💡 有想要的功能？→ [开个需求](https://mox-site.pages.dev/go.html?r=moxsh-plugins&p=issues)
+- 💥 遇到崩溃 / 黑屏 / 跑不起来？→ [提个 Bug 报告](https://mox-site.pages.dev/go?r=moxsh-plugins&p=issues)
+- 💡 有想要的功能？→ [开个需求](https://mox-site.pages.dev/go?r=moxsh-plugins&p=issues)
 - 🗯️ 单纯想吐槽、挑刺？→ 也欢迎开 issue，标签随便打 😄
 
 每个 issue 我都会看，能修的尽快修。一起把它从“能跑”养到“好用” 💪
