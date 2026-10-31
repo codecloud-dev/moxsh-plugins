@@ -6,7 +6,7 @@
     {
       "id": "hello-mox",
       "name": "Hello mox",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "codecloud-dev",
       "description": "官方最小示例插件：演示 .mox 清单格式与插件商店的安装流程。",
       "type": "plugin",
@@ -22,7 +22,7 @@
     {
       "id": "glass-terminal-theme",
       "name": "Glass Terminal 主题",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "codecloud-dev",
       "description": "液态玻璃风格的终端主题：半透明面板、毛玻璃背景、跟随系统的强调色。",
       "type": "theme",
