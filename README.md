@@ -6,7 +6,7 @@
 # moxsh 插件商店
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-8a7bff" alt="version">
+  <img src="https://img.shields.io/badge/version-1.0.1-8a7bff" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-37d5d3" alt="license">
   <img src="https://img.shields.io/badge/format-JSON%20Schema-2088FF?logo=json&logoColor=white" alt="JSON Schema">
   <img src="https://img.shields.io/badge/store-catalog%20%26%20plugins-ff7ac3" alt="store">
@@ -15,7 +15,7 @@
 
 <p align="center"><a href="README.md">中文</a> · <a href="README.en.md">English</a></p>
 
-> **仓库版本：1.0.0** · 官方与社区插件的索引与清单仓库。moxsh App 的插件商店从这里读取目录，按 id 下载 `.mox` 包安装。
+> **仓库版本：1.0.1** · 官方与社区插件的索引与清单仓库。moxsh App 的插件商店从这里读取目录，按 id 下载 `.mox` 包安装。
 
 moxsh · 让手机上的 Linux 像 iOS 一样顺滑。
 
