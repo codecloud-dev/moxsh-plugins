@@ -63,7 +63,10 @@ moxsh-plugins/
 ├── catalog.json                    # App 直接消费的索引（顶层对象 + entries 数组）
 ├── plugins.json                    # 社区索引，含 repo / path / tags 等全量元数据
 ├── schema/
-│   └── catalog.schema.json         # catalog.json 的 JSON Schema（Draft 2020-12），供作者校验
+│   ├── catalog.schema.json         # catalog.json 的 JSON Schema（Draft 2020-12），供作者校验
+│   └── entry-schema.json           # 单条目 / .mox 包内 manifest.json 的最小契约（必填 id/name/version/type）
+├── scripts/
+│   └── check-schemas.mjs           # 零依赖 Schema 契约自测（规则有效性 + 索引一致性）
 ├── plugins/
 │   ├── hello-mox/
 │   │   └── plugin.json             # 单个插件的完整清单（plugin 类型）
@@ -135,17 +138,22 @@ moxsh App 内 `StoreRepository.CloudStoreApi` 的行为：
 
 ## 🛠️ 本地校验清单（开发者）
 
-仓库附带 `schema/catalog.schema.json`。提交前可用任意 JSON Schema 工具校验 `catalog.json` 是否符合结构：
+仓库附带 `schema/catalog.schema.json`（整体索引）与 `schema/entry-schema.json`（单条目 / `.mox` 包内 `manifest.json` 契约）。提交前按下面顺序校验：
 
 ```bash
-# 方式一：npx 一次性校验（无需安装）
+# 方式一（推荐，零依赖，CI 也跑这条）：规则自测 + 索引一致性
+node scripts/check-schemas.mjs
+
+# 方式二：完整 JSON Schema 引擎校验（需联网）
 npx --yes @hyperjump/json-schema-cli@latest validate \
   schema/catalog.schema.json catalog.json
 
-# 方式二：ajv-cli
+# 方式三：ajv-cli
 npm i -g ajv-cli
 ajv compile -s schema/catalog.schema.json && ajv validate -s schema/catalog.schema.json -d catalog.json
 ```
+
+`check-schemas.mjs` 不只校验数据，还校验**规则本身没失效**：两份 schema 是否都带 `integrity` / `signature.keyId`、算法枚举是否与 `moxsh-suite/spec/plugin-manifest.schema.json` 同构、`planned` 条目有没有偷偷写非 0 的 `sizeBytes`、`catalog.json` 与 `plugins.json` 的 id 集合是否一致。CI 见 `.github/workflows/validate-schema.yml`。
 
 > 注意：Schema 只校验**结构**（字段类型 / `type` 枚举 / `id` 格式）。语义正确性（如 `path` 是否真实存在、`minAppVersion` 是否合理）仍需人工/CI 复核。
 
@@ -172,16 +180,22 @@ ajv compile -s schema/catalog.schema.json && ajv validate -s schema/catalog.sche
 | 示例插件 `hello-mox` | ✅ 已发布 | `plugin` 类型 |
 | 示例主题 `glass-terminal-theme` | ✅ **1.0.0 新增** | `theme` 类型，演示多类型支持 |
 | `catalog.json` JSON Schema | ✅ **1.0.0 新增** | `schema/catalog.schema.json`，供作者校验 |
+| 完整性 / 签名字段对齐 suite spec | ✅ **1.0.1 新增** | `integrity.checksum`、`integrity.signature`、`signingKeyId` 与 `moxsh-suite/spec/plugin-manifest.schema.json` 同构 |
+| `.mox` manifest 必填约束 | ✅ **1.0.1 新增** | `schema/entry-schema.json` 强制 `id/name/version/type`，与 `terminal-core/src/moxpkg.rs` 同源 |
+| Schema 契约自测 + CI | ✅ **1.0.1 新增** | `scripts/check-schemas.mjs` + `validate-schema.yml`，含负向用例验证 |
 | 详细作者指南 + 字段参考 | ✅ **1.0.0 新增** | 本 README |
-| `.mox` 打包接入 CI | ⏳ 待规划 | `sizeBytes` 仍为 `0` 占位，安装提示"包源未配置"属预期 |
+| `.mox` 打包接入 CI | ⏳ **未打通** | 无 `pkg/` 目录、无构建/上传 workflow；`sizeBytes` 为 `0` 占位且 `packageStatus=planned` |
+| 终端侧消费 `integrity` 签名 | ⏳ **未迁移** | App 目前仍用共享密钥 HMAC-SHA256，未迁移到 spec 的非对称签名 / `keyId` 轮换 |
 | 付费 / 订阅 / 系统内置示例 | ⏳ 规划中 | 规范已支持（`pricing` / `visibility`），待补示例 |
 
 ---
 
 ## 🔹 当前状态
 
-`.mox` 打包流程尚未接入 CI，`catalog.json` 里的 `sizeBytes` 暂为 `0` 占位；
-包体未就绪时，App 点安装会提示"包源未配置"，属预期表现。
+.mox 打包流程**尚未接入 CI**：仓库没有 `pkg/` 目录，也没有构建、签名、上传 Release 的 workflow。
+因此 `catalog.json` 里两条 entry 的 `sizeBytes` 仍为 `0`，并显式标注 `packageStatus: "planned"` —— 这不是数据错误，是如实说明「包体不存在」，不允许填一个看起来像真的体积数字。App 点安装会提示「包源未配置」，属预期表现。
+
+Schema 侧已把 `integrity`（`checksum` + `signature`）与 `signingKeyId` 补齐并对齐 `moxsh-suite` 的非对称签名规格，但**这只是契约先行**：终端侧 `StoreRepository` 仍在使用共享密钥 HMAC-SHA256，尚未迁移到 `ed25519` / `keyId` 轮换，也没有校验 `timestamp` 过期/撤销。这是已知差距，不是设计选择；详见 `moxsh-terminal/SECURITY.md`。
 
 ---
 

@@ -1,0 +1,22 @@
+name: 校验插件 Schema 契约
+
+on:
+  push:
+    paths: ['catalog.json', 'plugins.json', 'schema/**', 'scripts/check-schemas.mjs']
+  pull_request:
+    paths: ['catalog.json', 'plugins.json', 'schema/**', 'scripts/check-schemas.mjs']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Schema 规则自测 + 索引一致性
+        run: node scripts/check-schemas.mjs

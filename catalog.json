@@ -15,9 +15,13 @@
       "price": 0.0,
       "purchased": false,
       "sizeBytes": 0,
-      "tags": ["demo", "official"],
+      "tags": [
+        "demo",
+        "official"
+      ],
       "repository": "codecloud-dev/moxsh-plugins",
-      "path": "plugins/hello-mox"
+      "path": "plugins/hello-mox",
+      "packageStatus": "planned"
     },
     {
       "id": "glass-terminal-theme",
@@ -31,9 +35,14 @@
       "price": 0.0,
       "purchased": false,
       "sizeBytes": 0,
-      "tags": ["theme", "glass", "official"],
+      "tags": [
+        "theme",
+        "glass",
+        "official"
+      ],
       "repository": "codecloud-dev/moxsh-plugins",
-      "path": "plugins/glass-terminal-theme"
+      "path": "plugins/glass-terminal-theme",
+      "packageStatus": "planned"
     }
   ]
 }

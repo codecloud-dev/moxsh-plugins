@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codecloud-dev.github.io/moxsh-plugins/schema/entry-schema.json",
+  "title": ".mox 包内 manifest.json 契约",
+  "description": "与 terminal-core/src/moxpkg.rs 的 MoxManifest::from_bytes 同源：id/name/version/type 缺一即 BadManifest，非法包不能通过校验。另给出与 moxsh-suite/spec/plugin-manifest.schema.json 对齐的 integrity 字段定义，供打包流程接入后使用。",
+  "type": "object",
+  "required": ["id", "name", "version", "type"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(?!\\.)[A-Za-z0-9._-]+$",
+      "description": "插件唯一标识；与 catalog.json 的 entry.id 必须一致"
+    },
+    "name": { "type": "string", "minLength": 1, "description": "显示名" },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)",
+      "description": "语义化版本，如 1.0.1"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["plugin", "skill", "theme", "rootfs"],
+      "description": "缺此字段 App 会解析失败"
+    },
+    "minAppVersion": { "type": "string" },
+    "author": { "type": "string" },
+    "description": { "type": "string" },
+    "permissions": { "type": "array", "items": { "type": "string" } },
+    "integrity": { "$ref": "#/$defs/integrity" }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "integrity": {
+      "type": "object",
+      "description": "字段结构对齐 moxsh-suite/spec/plugin-manifest.schema.json 的 $defs.integrity。",
+      "additionalProperties": false,
+      "properties": {
+        "checksum": {
+          "type": "object",
+          "required": ["algo", "value"],
+          "additionalProperties": false,
+          "properties": {
+            "algo": { "type": "string", "enum": ["sha256", "sha512"] },
+            "value": { "type": "string", "minLength": 1 }
+          }
+        },
+        "signature": {
+          "type": "object",
+          "required": ["algo", "value"],
+          "additionalProperties": false,
+          "properties": {
+            "algo": { "type": "string", "enum": ["ed25519", "rsa-pss", "ecdsa"] },
+            "value": { "type": "string", "minLength": 1 },
+            "keyId": { "type": "string" },
+            "certFingerprint": { "type": "string" },
+            "timestamp": { "type": "string", "format": "date-time" }
+          }
+        }
+      }
+    }
+  }
+}
