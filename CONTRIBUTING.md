@@ -34,8 +34,9 @@
 
 | 改动范围 | 命令 / 说明 |
 | --- | --- |
-| catalog 校验 | `python3 -m json.tool catalog.json >/dev/null && python3 -m json.tool schema/catalog.schema.json >/dev/null` |
-| 条目与 schema 对齐 | 新增条目后确认字段满足 `schema/catalog.schema.json` |
+| catalog / plugins 校验（CI 同款，推荐） | `node scripts/check-schemas.mjs`：校验 schema 规则有效性 + catalog.json / plugins.json 索引一致性 |
+| catalog 基础语法 | `python3 -m json.tool catalog.json >/dev/null && python3 -m json.tool schema/catalog.schema.json >/dev/null` |
+| 条目与 schema 对齐 | 新增条目后确认字段满足 `schema/catalog.schema.json` 与 `schema/entry-schema.json` |
 
 命令以仓库当前内容为准；如果和你本地不一致，以 [CI 工作流](.github/workflows/) 里实际跑的为准，并欢迎顺手修这份文档。
 

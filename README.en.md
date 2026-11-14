@@ -6,7 +6,7 @@
 # moxsh Plugin Store
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.1-8a7bff" alt="version">
+  <img src="https://img.shields.io/badge/version-1.0.2-8a7bff" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-37d5d3" alt="license">
   <img src="https://img.shields.io/badge/format-JSON%20Schema-2088FF?logo=json&logoColor=white" alt="JSON Schema">
   <img src="https://img.shields.io/badge/store-catalog%20%26%20plugins-ff7ac3" alt="store">
@@ -14,7 +14,7 @@
 
 <p align="center"><a href="README.md">中文</a> · <b>English</b></p>
 
-> **Repo version: 1.0.1** · The index and catalog repo for official and community plugins. The moxsh App reads its catalog from here and installs `.mox` packages by `id`.
+> **Repo version: 1.0.2** · The index and catalog repo for official and community plugins. The moxsh App reads its catalog from here and installs `.mox` packages by `id`.
 
 moxsh · a Linux terminal on your phone that feels as smooth as iOS.
 
@@ -62,7 +62,10 @@ moxsh-plugins/
 ├── catalog.json                    # Index consumed directly by the App (top-level object + entries array)
 ├── plugins.json                   # Community index with full metadata (repo / path / tags …)
 ├── schema/
-│   └── catalog.schema.json         # JSON Schema (Draft 2020-12) for catalog.json, for author validation
+│   ├── catalog.schema.json         # JSON Schema (Draft 2020-12) for catalog.json, for author validation
+│   └── entry-schema.json           # Minimal contract for a single entry / in-package `.mox` manifest.json (requires id/name/version/type)
+├── scripts/
+│   └── check-schemas.mjs           # Zero-dependency Schema contract self-test (rule validity + index consistency)
 ├── plugins/
 │   ├── hello-mox/
 │   │   └── plugin.json           # One plugin's full manifest (plugin type)
@@ -133,17 +136,22 @@ See `plugins/hello-mox/plugin.json` and `plugins/glass-terminal-theme/plugin.jso
 
 ## 🛠️ Local validation (developers)
 
-The repo ships `schema/catalog.schema.json`. Before submitting, validate `catalog.json` against it with any JSON Schema tool:
+The repo ships `schema/catalog.schema.json` (the whole index) and `schema/entry-schema.json` (single entry / in-package `.mox` `manifest.json` contract). Validate before submitting, in this order:
 
 ```bash
-# Option 1: one-shot npx (no install)
+# Option 1 (recommended, zero-dependency, also runs in CI): rule self-test + index consistency
+node scripts/check-schemas.mjs
+
+# Option 2: full JSON Schema engine validation (needs network)
 npx --yes @hyperjump/json-schema-cli@latest validate \
   schema/catalog.schema.json catalog.json
 
-# Option 2: ajv-cli
+# Option 3: ajv-cli
 npm i -g ajv-cli
 ajv compile -s schema/catalog.schema.json && ajv validate -s schema/catalog.schema.json -d catalog.json
 ```
+
+`check-schemas.mjs` doesn't just validate data — it also verifies **the rules themselves haven't drifted**: both schemas carry `integrity` / `signature.keyId`, the algorithm enums are isomorphic to `moxsh-suite/spec/plugin-manifest.schema.json`, `planned` entries don't sneak in a non-zero `sizeBytes`, and the `id` sets of `catalog.json` and `plugins.json` match. CI: `.github/workflows/validate-schema.yml`.
 
 > Note: the Schema only validates **structure** (field types / `type` enum / `id` format). Semantic correctness (e.g. whether `path` really exists, whether `minAppVersion` is sensible) still needs human/CI review.
 
@@ -170,8 +178,12 @@ ajv compile -s schema/catalog.schema.json && ajv validate -s schema/catalog.sche
 | Sample plugin `hello-mox` | ✅ released | `plugin` type |
 | Sample theme `glass-terminal-theme` | ✅ **new in 1.0.0** | `theme` type, demonstrates multi-type support |
 | `catalog.json` JSON Schema | ✅ **new in 1.0.0** | `schema/catalog.schema.json`, for author validation |
+| `.mox` manifest entry Schema | ✅ **new in 1.0.1** | `schema/entry-schema.json` enforces `id/name/version/type`, same source as `terminal-core/src/moxpkg.rs` |
+| Integrity / signature fields aligned to suite spec | ✅ **new in 1.0.1** | `integrity.checksum`, `integrity.signature`, `signingKeyId` isomorphic to `moxsh-suite/spec/plugin-manifest.schema.json` |
+| Schema contract self-test + CI | ✅ **new in 1.0.1** | `scripts/check-schemas.mjs` + `validate-schema.yml`, with negative-case coverage |
 | Detailed author guide + field reference | ✅ **new in 1.0.0** | this README |
-| `.mox` packaging in CI | ⏳ planned | `sizeBytes` still `0` placeholder; "package source not configured" is expected |
+| `.mox` packaging in CI | ⏳ planned | no `pkg/` dir, no build/sign/upload workflow; `sizeBytes` still `0` placeholder with `packageStatus=planned` |
+| Terminal-side `integrity` signature consumption | ⏳ not migrated | App still uses shared-key HMAC-SHA256, not yet migrated to asymmetric signing / `keyId` rotation |
 | Paid / subscription / system-builtin samples | ⏳ planned | spec already supports (`pricing` / `visibility`), samples pending |
 
 ---
