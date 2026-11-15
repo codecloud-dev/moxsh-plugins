@@ -3,6 +3,8 @@
   "id": "glass-terminal-theme",
   "name": "Glass Terminal 主题",
   "version": "1.0.1",
+  "minVersion": "1.0.1",
+  "revokedVersions": ["1.0.0", "0.9.2"],
   "author": {
     "name": "codecloud-dev",
     "url": "https://github.com/codecloud-dev"

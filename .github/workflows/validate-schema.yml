@@ -2,9 +2,9 @@ name: 校验插件 Schema 契约
 
 on:
   push:
-    paths: ['catalog.json', 'plugins.json', 'schema/**', 'scripts/check-schemas.mjs']
+    paths: ['catalog.json', 'plugins.json', 'plugins/**', 'schema/**', 'scripts/**']
   pull_request:
-    paths: ['catalog.json', 'plugins.json', 'schema/**', 'scripts/check-schemas.mjs']
+    paths: ['catalog.json', 'plugins.json', 'plugins/**', 'schema/**', 'scripts/**']
   workflow_dispatch:
 
 permissions:
@@ -18,5 +18,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Schema 规则自测 + 索引一致性
+      - name: Schema 规则自测 + 索引一致性 + 禁止回滚策略三方一致性
         run: node scripts/check-schemas.mjs
+      # 安全硬需求：三条断言（回滚到 revoked 被拒 / 低于 minVersion 被拒 / 升级通过）
+      # 及 semver、版本单调、隔离判定边界，绑定真实 catalog.json 真跑。
+      - name: 禁止回滚策略（版本比较 / revoked 拦截 / 单调 / 升级）断言
+        run: node scripts/check-plugin-policy.mjs

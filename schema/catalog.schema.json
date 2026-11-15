@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://codecloud-dev.github.io/moxsh-plugins/schema/catalog.schema.json",
   "title": "moxsh 插件目录 catalog.json",
-  "description": "moxsh App 插件商店直接消费的索引文件结构：顶层对象 + entries 数组。每条 entry 必须带 type，否则 App 会解析失败。 完整性/签名字段与 moxsh-suite 的 plugin-manifest.schema.json 对齐；单条目与包内 manifest 契约见 entry-schema.json。",
+  "description": "moxsh App 插件商店直接消费的索引文件结构：顶层对象 + entries 数组。每条 entry 必须带 type，否则 App 会解析失败。 完整性/签名字段与 moxsh-suite 的 plugin-manifest.schema.json 对齐；单条目与包内 manifest 契约见 entry-schema.json。 安全（禁止回滚）：每条 entry 必须声明 minVersion（允许安装的最低版本）与 revokedVersions（已确认有漏洞、禁止安装/回滚的版本号）。这是可信索引侧的强制下限，运行时据此拦截降级/回滚；字段缺失即视为清单不合规。",
   "type": "object",
   "required": [
     "schemaVersion",
@@ -26,13 +26,20 @@
     }
   },
   "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\\+([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?$",
+      "description": "语义化版本 2.0.0：major.minor.patch 可带 -预发布 / +构建元数据；与运行时 PluginVersionPolicy 的 semver 解析器同构"
+    },
     "entry": {
       "type": "object",
       "required": [
         "id",
         "name",
         "version",
-        "type"
+        "type",
+        "minVersion",
+        "revokedVersions"
       ],
       "properties": {
         "id": {
@@ -45,7 +52,7 @@
         },
         "version": {
           "type": "string",
-          "description": "语义化版本号"
+          "description": "语义化版本号（当前可安装版本）"
         },
         "type": {
           "type": "string",
@@ -56,6 +63,18 @@
             "rootfs"
           ],
           "description": "缺此字段 App 会解析失败"
+        },
+        "minVersion": {
+          "$ref": "#/$defs/semver",
+          "description": "该插件允许安装的最低版本：低于它一律拒装（含全新安装与回滚覆盖）。修复漏洞后应抬到此值，形成版本地板。"
+        },
+        "revokedVersions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/semver"
+          },
+          "uniqueItems": true,
+          "description": "已确认有漏洞、禁止安装/回滚的版本号数组。命中即拒绝；运行时按 semver 优先级比较，防止改动写法绕过。可为空数组 []。"
         },
         "author": {
           "type": "string"

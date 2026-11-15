@@ -3,6 +3,8 @@
   "id": "hello-mox",
   "name": "Hello mox",
   "version": "1.0.1",
+  "minVersion": "1.0.1",
+  "revokedVersions": ["1.0.0"],
   "author": {
     "name": "codecloud-dev",
     "url": "https://github.com/codecloud-dev"
