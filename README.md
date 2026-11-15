@@ -6,10 +6,20 @@
 # moxsh 插件商店
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.2-8a7bff" alt="version">
-  <img src="https://img.shields.io/badge/license-MIT-37d5d3" alt="license">
-  <img src="https://img.shields.io/badge/format-JSON%20Schema-2088FF?logo=json&logoColor=white" alt="JSON Schema">
-  <img src="https://img.shields.io/badge/store-catalog%20%26%20plugins-ff7ac3" alt="store">
+  <a href="https://github.com/codecloud-dev/moxsh-plugins"><img src="https://img.shields.io/badge/MoX_Series-%E6%8F%92%E4%BB%B6%E5%95%86%E5%BA%97-8a7bff?style=for-the-badge&logo=github&logoColor=white" alt="MoX Series: 插件商店"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/README.md"><img src="https://img.shields.io/badge/JSON-Schema_%E6%A0%A1%E9%AA%8C-14181A?style=for-the-badge&logo=json&logoColor=000000" alt="JSON: Schema 校验"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/README.md"><img src="https://img.shields.io/badge/registry-%E5%AE%98%E6%96%B9_%2F_%E7%A4%BE%E5%8C%BA-14181A?style=for-the-badge&logo=npm&logoColor=CB3837" alt="registry: 官方 / 社区"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/README.md"><img src="https://img.shields.io/badge/version-1.0.2-14181A?style=for-the-badge&logo=github&logoColor=37d5d3" alt="version: 1.0.2"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/README.md"><img src="https://img.shields.io/badge/docs-%E4%B8%AD_%2F_EN-14181A?style=for-the-badge&logo=gitbook&logoColor=2088FF" alt="docs: 中 / EN"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/actions/workflows/validate-schema.yml"><img src="https://img.shields.io/github/actions/workflow/status/codecloud-dev/moxsh-plugins/validate-schema.yml?branch=main&style=flat-square&label=CI" alt="CI"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/LICENSE"><img src="https://img.shields.io/github/license/codecloud-dev/moxsh-plugins?style=flat-square&color=37d5d3" alt="License"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/stargazers"><img src="https://img.shields.io/github/stars/codecloud-dev/moxsh-plugins?style=flat-square&color=ff7ac3" alt="Stars"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/commits/main"><img src="https://img.shields.io/github/last-commit/codecloud-dev/moxsh-plugins?style=flat-square&color=8a7bff" alt="Last commit"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins"><img src="https://img.shields.io/badge/format-JSON_Schema-2088FF?style=flat-square" alt="format: JSON Schema"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/pulls"><img src="https://img.shields.io/badge/PRs-welcome-8a7bff?style=flat-square&logo=github&logoColor=white" alt="PRs welcome"></a>
 </p>
 
 
