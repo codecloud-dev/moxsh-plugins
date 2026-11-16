@@ -13,7 +13,7 @@
 ## 一、这个仓库是什么
 
 - 它只是**一组静态 JSON 文件 + JSON Schema + 插件源码目录**：`catalog.json`（App 直接消费的索引）、`plugins.json`（社区全量索引）、`schema/catalog.schema.json` 与 `schema/entry-schema.json`（校验规则）、`plugins/`（插件目录）。
-- 托管在 **GitHub**（唯一主源 `codecloud-dev/moxsh-plugins`），并有一个 **Gitee 只读镜像**（`gitee.com/thousand-code-crafts/moxsh-plugins`，每小时从 GitHub 同步）。
+- 托管在 **GitHub**（唯一主源 `codecloud-dev/moxsh-plugins`），并有一个 **Gitee 只读镜像**（`gitee.com/codecloud-dev/moxsh-plugins`，每小时从 GitHub 同步）。
 - 仓库本身**不运行代码、不接收 HTTP 请求、不写日志、不设账号、不种 Cookie、不发邮件**。
 
 ## 二、联网行为发生在谁那一侧
@@ -114,7 +114,7 @@
 ## 1. What this repository is
 
 - It is **a set of static JSON files + JSON Schemas + plugin source directories**: `catalog.json` (the index the App consumes directly), `plugins.json` (full community index), `schema/catalog.schema.json` and `schema/entry-schema.json` (validation rules), and `plugins/`.
-- Hosted on **GitHub** (the single source of truth, `codecloud-dev/moxsh-plugins`) with a **read-only Gitee mirror** (`gitee.com/thousand-code-crafts/moxsh-plugins`, synced hourly from GitHub).
+- Hosted on **GitHub** (the single source of truth, `codecloud-dev/moxsh-plugins`) with a **read-only Gitee mirror** (`gitee.com/codecloud-dev/moxsh-plugins`, synced hourly from GitHub).
 - The repository itself **runs no code, receives no HTTP requests, writes no logs, has no accounts, sets no cookies, and sends no email**.
 
 ## 2. Where the network activity actually happens
