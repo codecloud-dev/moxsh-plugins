@@ -4,6 +4,29 @@
 
 本文件记录**显著的**用户可见变更。琐碎的排版、内部重构、CI 微调不单独列条目；完整逐笔记录请看 [提交历史](../../commits/main) 与 [Releases](../../releases)。
 
+## [1.0.4] - 2026-11-19
+
+> 目录数据此前已标到 `1.0.3` 但 CHANGELOG 未留段，本次不倒填无依据内容；按当前目录真实版本 `1.0.4` 发版并补齐变更记录。仓库版本、`catalog.json` / `plugins.json` 的 `repoVersion`、`updated` 与 README 中英徽章全部对齐。
+
+### 修复
+
+- **Schema 的 semver 约束可被绕过**：`entry-schema.json` 旧内联正则结尾无 `$`，`1.0.1garbage`、`1.0.1;rm -rf /` 都能通过；`catalog.schema.json` 的 `entry.version` 干脆没有 semver 约束。现两份 schema 统一 `$ref` 到同一 `#/$defs/semver` 完整锚定定义，校验器新增负向探针直接拿 schema 里的真实 pattern 反证严格性，防一侧收紧一侧漂移。
+- **三方一致性存在假绿**：旧 `check-schemas.mjs` 只比 `minVersion` / `revokedVersions`；把包内 `plugin.json` 的 `id` 改成 `spoofed-id`、`version` 改成 `9.9.9`、`type` 改成 `rootfs`，仍是 58/0 全过。现逐 id 核对 id / version / type，并检测重复 id / 重复 path、当前版本落在自身撤销名单、两份索引重复条目。
+- **插件包类型缺失**：`hello-mox` / `glass-terminal-theme` 的 `plugin.json` 补 `type` 字段，与目录项一致。
+- **Gitee 镜像说明过时**：README 中英从「每小时同步」改为与现有 workflow 一致的「main 每次推送触发 + 6 小时兜底」。
+
+### 新增
+
+- `scripts/check-validators.mjs`：零依赖负向回归，真注入 12 类篡改（冒名 id / 版本漂移 / 类型漂移 / 文件缺失 / 自我撤销 / 重复 id / 弱 semver / schema 退化等），断言校验器必须拒绝，避免「校验器自己没被校验」。
+- `scripts/bench-check.mjs`：生成 N 条自洽合成 catalog，在临时目录真跑校验器三轮取中位数；基准不设性能阈值，只输出真实机器数字。本机 N=200 实测：中位 **31.2 ms**、约 **6413 entries/s**（随负载波动）。
+
+### 验证
+
+- `node scripts/check-schemas.mjs` EXIT=0：**87 通过 / 0 失败**。
+- `node scripts/check-plugin-policy.mjs` EXIT=0：**36 通过 / 0 失败**。
+- `node scripts/check-validators.mjs` EXIT=0：**12 负向用例全部按预期拒绝**。
+- `node scripts/bench-check.mjs 200` EXIT=0：`validatorExit=0`，中位 31.2 ms / 6413 entries/s。
+
 ## [1.0.2] - 2026-11-14
 
 ### 变更 / 目录更新

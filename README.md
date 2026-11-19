@@ -1,4 +1,4 @@
-> **🌐 主仓库在 GitHub** — [`codecloud-dev/moxsh-plugins`](https://mox-site.pages.dev/go?r=moxsh-plugins) 是唯一主源：Issue、Pull Request、功能讨论请统一提交到 GitHub。[Gitee 镜像](https://gitee.com/codecloud-dev/moxsh-plugins) 仅供国内高速只读访问，每小时从 GitHub 自动同步。
+> **🌐 主仓库在 GitHub** — [`codecloud-dev/moxsh-plugins`](https://mox-site.pages.dev/go?r=moxsh-plugins) 是唯一主源：Issue、Pull Request、功能讨论请统一提交到 GitHub。[Gitee 镜像](https://gitee.com/codecloud-dev/moxsh-plugins) 仅供国内高速只读访问：main 分支每次推送触发同步，另有每 6 小时兜底同步。
 
 <p align="center"><img src="assets/logo.svg" width="128" alt="MoX"/></p>
 
@@ -9,7 +9,7 @@
   <a href="https://github.com/codecloud-dev/moxsh-plugins"><img src="https://img.shields.io/badge/MoX_Series-%E6%8F%92%E4%BB%B6%E5%95%86%E5%BA%97-8a7bff?style=for-the-badge&logo=github&logoColor=white" alt="MoX Series: 插件商店"></a>
   <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/README.md"><img src="https://img.shields.io/badge/JSON-Schema_%E6%A0%A1%E9%AA%8C-14181A?style=for-the-badge&logo=json&logoColor=000000" alt="JSON: Schema 校验"></a>
   <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/README.md"><img src="https://img.shields.io/badge/registry-%E5%AE%98%E6%96%B9_%2F_%E7%A4%BE%E5%8C%BA-14181A?style=for-the-badge&logo=npm&logoColor=CB3837" alt="registry: 官方 / 社区"></a>
-  <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/README.md"><img src="https://img.shields.io/badge/version-1.0.2-14181A?style=for-the-badge&logo=github&logoColor=37d5d3" alt="version: 1.0.2"></a>
+  <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/README.md"><img src="https://img.shields.io/badge/version-1.0.4-14181A?style=for-the-badge&logo=github&logoColor=37d5d3" alt="version: 1.0.4"></a>
   <a href="https://github.com/codecloud-dev/moxsh-plugins/blob/main/README.md"><img src="https://img.shields.io/badge/docs-%E4%B8%AD_%2F_EN-14181A?style=for-the-badge&logo=gitbook&logoColor=2088FF" alt="docs: 中 / EN"></a>
 </p>
 
@@ -25,7 +25,7 @@
 
 <p align="center"><a href="README.md">中文</a> · <a href="README.en.md">English</a></p>
 
-> **仓库版本：1.0.2** · 官方与社区插件的索引与清单仓库。moxsh App 的插件商店从这里读取目录，按 id 下载 `.mox` 包安装。
+> **仓库版本：1.0.4** · 官方与社区插件的索引与清单仓库。moxsh App 的插件商店从这里读取目录，按 id 下载 `.mox` 包安装。
 
 moxsh · 让手机上的 Linux 像 iOS 一样顺滑。
 

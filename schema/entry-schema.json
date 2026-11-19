@@ -13,9 +13,8 @@
     },
     "name": { "type": "string", "minLength": 1, "description": "显示名" },
     "version": {
-      "type": "string",
-      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)",
-      "description": "语义化版本，如 1.0.1"
+      "$ref": "#/$defs/semver",
+      "description": "语义化版本 2.0.0，如 1.0.1。必须引用完整锚定的 semver 定义：旧的内联前缀正则（结尾无 $）会把 1.0.1garbage、1.0.1;rm -rf / 当成合法版本"
     },
     "type": {
       "type": "string",

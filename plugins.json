@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "repoVersion": "1.0.3",
-  "updated": "2026-11-15",
+  "repoVersion": "1.0.4",
+  "updated": "2026-11-19",
   "plugins": [
     {
       "id": "hello-mox",

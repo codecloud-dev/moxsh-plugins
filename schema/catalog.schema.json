@@ -51,8 +51,8 @@
           "type": "string"
         },
         "version": {
-          "type": "string",
-          "description": "语义化版本号（当前可安装版本）"
+          "$ref": "#/$defs/semver",
+          "description": "语义化版本号（当前可安装版本）；与 minVersion 共用完整锚定的 semver 定义，禁止 1.0.1garbage 之类绕过"
         },
         "type": {
           "type": "string",

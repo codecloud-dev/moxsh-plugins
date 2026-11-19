@@ -3,6 +3,7 @@
   "id": "hello-mox",
   "name": "Hello mox",
   "version": "1.0.1",
+  "type": "plugin",
   "minVersion": "1.0.1",
   "revokedVersions": ["1.0.0"],
   "author": {
