@@ -4,6 +4,12 @@
 
 本文件记录**显著的**用户可见变更。琐碎的排版、内部重构、CI 微调不单独列条目；完整逐笔记录请看 [提交历史](../../commits/main) 与 [Releases](../../releases)。
 
+## [1.0.5] - 2026-11-21
+
+### 修复
+
+- **两份索引漂移可被守门抓到**：`check-schemas.mjs` 现在逐 id 比对 `catalog.json` 与 `plugins.json` 的 `updated`/`repoVersion`，避免目录数据改了一边忘改另一边。
+- **校验器负向探针补上「updated 漂移 / 非法日期」两类真实回滚路径**，防止 schema 约束被弱化后 CI 仍然假绿。
 ## [1.0.4] - 2026-11-19
 
 > 目录数据此前已标到 `1.0.3` 但 CHANGELOG 未留段，本次不倒填无依据内容；按当前目录真实版本 `1.0.4` 发版并补齐变更记录。仓库版本、`catalog.json` / `plugins.json` 的 `repoVersion`、`updated` 与 README 中英徽章全部对齐。

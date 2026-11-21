@@ -134,6 +134,16 @@ const catIds = (catalog.entries ?? []).map(e => e.id).sort();
 const plugIds = (plugins.plugins ?? plugins.entries ?? []).map(e => e.id).sort();
 ok(JSON.stringify(catIds) === JSON.stringify(plugIds),
    `两份索引 id 集合不一致：catalog=[${catIds}] plugins=[${plugIds}]`);
+// App 只读 plugins.json、官网/徽章常读 catalog.json；repoVersion/updated 漂移会让
+// 用户看到「仓库版本 1.0.4、索引仍写 1.0.1」这种自相矛盾的信息。这里按同一份真源守门。
+ok(catalog.repoVersion === plugins.repoVersion,
+   `两份索引 repoVersion 不一致：catalog=${catalog.repoVersion} plugins=${plugins.repoVersion}`);
+ok(catalog.updated === plugins.updated,
+   `两份索引 updated 不一致：catalog=${catalog.updated} plugins=${plugins.updated}`);
+ok(typeof catalog.repoVersion === 'string' && catalog.repoVersion.length > 0,
+   'catalog.repoVersion 缺失');
+ok(typeof catalog.updated === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(catalog.updated),
+   'catalog.updated 不是 YYYY-MM-DD');
 
 // ⑤ 三方策略一致性：catalog.json / plugins.json / plugins/*/plugin.json 的
 //    minVersion 与 revokedVersions 必须逐 id 相同（漏改任一入口都会在此暴露）。

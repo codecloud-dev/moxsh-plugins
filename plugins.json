@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "repoVersion": "1.0.4",
-  "updated": "2026-11-19",
+  "repoVersion": "1.0.5",
+  "updated": "2026-11-21",
   "plugins": [
     {
       "id": "hello-mox",
@@ -10,13 +10,18 @@
       "description": "官方最小示例插件：演示 .mox 清单格式与插件商店的安装流程。",
       "version": "1.0.1",
       "minVersion": "1.0.1",
-      "revokedVersions": ["1.0.0"],
+      "revokedVersions": [
+        "1.0.0"
+      ],
       "author": "codecloud-dev",
       "type": "plugin",
       "minAppVersion": "0.5.0",
       "repo": "codecloud-dev/moxsh-plugins",
       "path": "plugins/hello-mox",
-      "tags": ["demo", "official"]
+      "tags": [
+        "demo",
+        "official"
+      ]
     },
     {
       "id": "glass-terminal-theme",
@@ -25,13 +30,20 @@
       "description": "液态玻璃风格的终端主题：半透明面板、毛玻璃背景、跟随系统的强调色。",
       "version": "1.0.1",
       "minVersion": "1.0.1",
-      "revokedVersions": ["1.0.0", "0.9.2"],
+      "revokedVersions": [
+        "1.0.0",
+        "0.9.2"
+      ],
       "author": "codecloud-dev",
       "type": "theme",
       "minAppVersion": "0.6.0",
       "repo": "codecloud-dev/moxsh-plugins",
       "path": "plugins/glass-terminal-theme",
-      "tags": ["theme", "glass", "official"]
+      "tags": [
+        "theme",
+        "glass",
+        "official"
+      ]
     }
   ]
 }

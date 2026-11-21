@@ -127,6 +127,24 @@ const CASES = [
     },
     expect: 1,
   },
+  {
+    name: 'plugins.json 的 repoVersion 与 catalog.json 漂移',
+    mutate(d) { patch(d, 'plugins.json', o => { o.repoVersion = '0.0.0-drift'; }); },
+    expect: 1,
+  },
+  {
+    name: 'plugins.json 的 updated 与 catalog.json 漂移',
+    mutate(d) { patch(d, 'plugins.json', o => { o.updated = '2000-01-01'; }); },
+    expect: 1,
+  },
+  {
+    name: 'catalog.json 的 updated 写成非法日期格式',
+    mutate(d) {
+      patch(d, 'catalog.json', o => { o.updated = 'yesterday'; });
+      patch(d, 'plugins.json', o => { o.updated = 'yesterday'; });
+    },
+    expect: 1,
+  },
 ];
 
 console.log('=== 校验器负向回归（真实注入篡改，断言必须拒绝） ===');
