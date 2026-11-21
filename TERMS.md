@@ -38,7 +38,7 @@
 - 禁止的是**以规避授权与安全机制为目的的滥用**，包括但不限于：
   - 伪造 `MOX_STORE_SECRET` 签名、篡改 `.mox` 包清单、绕过 App 侧 `MoxPackage.verify()` 验签以取得未授权权限；
   - 篡改 `permissions` / `minAppVersion` / `version` 字段以绕过默认拒绝闸门或版本安全策略；
-  - 绕过本系列（moxsh-terminal / moxsh-proot / mox-id / Fenestra）已有的兑换码、设备绑定、商业授权或付费门禁；
+  - 绕过本系列（moxsh-terminal / moxsh-proot / 账号服务 / Fenestra）已有的兑换码、设备绑定、商业授权或付费门禁；
   - 以本仓库为渠道批量伪造插件、投毒、劫持更新或冒充官方包。
 - 上述禁止不扩张为「禁止一切逆向」：MIT 授予的使用、修改、再分发权利完整保留；被禁止的是**用于绕过授权、侵犯他人或规避付费**的具体滥用行为。
 
@@ -122,7 +122,7 @@ This is a **pure static data repository**: no server, no accounts, no payments, 
 - Prohibited is **abuse aimed at circumventing authorisation and security mechanisms**, including but not limited to:
   - Forging `MOX_STORE_SECRET` signatures, tampering with `.mox` manifests, or bypassing the App-side `MoxPackage.verify()` check to obtain unauthorised permissions;
   - Altering `permissions` / `minAppVersion` / `version` to bypass the default-deny gate or the version security policy;
-  - Bypassing existing redeem-code, device-binding, commercial-licensing, or paywall gates of this series (moxsh-terminal / moxsh-proot / mox-id / Fenestra);
+  - Bypassing existing redeem-code, device-binding, commercial-licensing, or paywall gates of this series (moxsh-terminal / moxsh-proot / account service / Fenestra);
   - Using this repository as a channel to bulk-forge plugins, poison packages, hijack updates, or impersonate official packages.
 - This does **not** expand into "all reverse engineering is forbidden": the use, modification and redistribution rights granted by MIT remain intact; what is prohibited is the specific abusive conduct of bypassing authorisation, infringing others, or evading payment.
 
